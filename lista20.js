@@ -45,6 +45,7 @@ while (opcoes != 9) {
          arrayIdCarrinho[contadorCarrinho] = prompt("Digite o ID do produto que deseja:")
          arrayQuantidadeCar[contadorCarrinho] = parseInt(prompt("Digite a quantidade:"))
        if(adicionarProdutoCar (arrayIdCarrinho[contador],arrayQuantidadeCar[contador])) {
+        exibirProdutosCarrinho()
         console.log ("Produto existente!")
        }else{
         console.log ("Produto não existe")
@@ -98,6 +99,11 @@ function ordenarPelaAvaliacao() {
 function exibirProdutos() {
     for (var index = 0; index < contador; index++) {
         console.log(arrayId[index], arrayNome[index], arrayPreco[index], arrayAvaliacao[index])
+    }
+    function exibirProdutosCarrinho () {
+        for (var index = 0; index < contadorCarrinho; index++){
+            console.log(arrayIdCarrinho[index],arrayQuantidadeCar[index])
+        }
     }
 }
 function atualizarPreco(idParametro, novoValor) {
@@ -177,6 +183,8 @@ function adicionarProdutoCar (nomeParametro,quantidadeParametro){
         arrayQuantidadeCar[index] = arrayQuantidadeCar[index] + quantidadeParametro
         return
     }
-
- }
+}
+arrayIdCarrinho[contadorCarrinho] = idProduto
+arrayQuantidadeCar[contadorCarrinho] = quantidadeParametro
+contadorCarrinho++
 }
